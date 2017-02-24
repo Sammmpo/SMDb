@@ -1,0 +1,145 @@
+
+
+body {
+  background: lightblue; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle, lightblue, grey); /* Safari */
+  background: -o-radial-gradient(circle, lightblue, grey); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, lightblue, grey); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, lightblue, grey) /* Standard syntax */ no-repeat center center fixed;
+	text-align: center;
+  font-family: Arial;
+}
+
+.vertical {
+    vertical-align: middle;
+}
+
+.title {
+	background-color:rgba(0,0,0,0);
+	padding-top: 2.5em;
+	padding-bottom: 3em;
+}
+
+h1 {
+	font-size: 4em;
+	font-weight: bold;
+	width: 100%;
+  color: orange;
+}
+
+h2 {
+	font-size: 1em;
+  color: orange;
+  font-family: tahoma;
+}
+
+.focus {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.error {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.div-padding {
+  padding: 1em;
+}
+
+.movieevement {
+  padding: 1em;
+  margin: auto;
+  width: 80%;
+  height: 5.5em;
+  background-color: lightblue;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+
+.movie-title {
+  font-size: 1.25em;
+  font-family: tahoma;
+}
+.movie-info {
+  font-size: 0.75em;
+  font-family: tahoma;
+}
+.movie-box {
+  border-style: solid;
+  border-width: 1px;
+  border-color: gold;
+  color: black;
+  background: lightblue;
+  background: radial-gradient(circle, gold, orange);
+  padding: 1em;
+}
+.movie-complete {
+  padding: 0.5em;
+  width: 100%;
+  background: lightblue;
+  border-width: 0px;
+  background: radial-gradient(circle, #ff6666, orange);
+}
+.complete {
+  background: lightblue; /* For browsers that do not support gradients */
+  background: radial-gradient(circle, gold, orange); /* Standard syntax */
+}
+.noButton {
+  background: red;
+  background: radial-gradient(circle, #ffccb3, #ff9966);
+  border-color: #ffccb3;
+  border-width: 1px;
+  padding: 0.5em;
+  width: 100%;
+}
+.yesButton {
+  background: lightgreen;
+  background: radial-gradient(circle, #b3ffb3, #00e68a);
+  border-color: #00e68a;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.5em;
+  width: 100%;
+}
+.buttonText a {
+  color: black;
+  text-decoration: none;
+}
+.cleanButton {
+  background: lightblue;
+  background: radial-gradient(circle, #cceeff,  #80d4ff);
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.bolda {
+  font-weight: bold;
+}
+
+.cloak {
+  visibility: hidden;
+}
+
+.whitebg {
+	background-color: white;
+	border-radius: 1em;
+}
+
+.btn-block {
+	background-color: lightblue;
+}
+
+/*
+* — Useless crap below —
+*/
