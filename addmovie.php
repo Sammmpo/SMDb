@@ -38,26 +38,43 @@
       <div class="form-group" style="text-align: left">
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <input type="hidden" name="input_moviegenre0" value=0>
         <input type="checkbox" name="input_moviegenre0" value=1> Action<br>
+        <input type="hidden" name="input_moviegenre1" value=0>
         <input type="checkbox" name="input_moviegenre1" value=1> Adventure<br>
+        <input type="hidden" name="input_moviegenre2" value=0>
         <input type="checkbox" name="input_moviegenre2" value=1> Biography<br>
+        <input type="hidden" name="input_moviegenre3" value=0>
         <input type="checkbox" name="input_moviegenre3" value=1> Comedy<br>
+        <input type="hidden" name="input_moviegenre4" value=0>
         <input type="checkbox" name="input_moviegenre4" value=1> Crime<br>
+        <input type="hidden" name="input_moviegenre5" value=0>
         <input type="checkbox" name="input_moviegenre5" value=1> Document<br>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <input type="hidden" name="input_moviegenre6" value=0>
         <input type="checkbox" name="input_moviegenre6" value=1> Drama<br>
+        <input type="hidden" name="input_moviegenre7" value=0>
         <input type="checkbox" name="input_moviegenre7" value=1> Family<br>
+        <input type="hidden" name="input_moviegenre8" value=0>
         <input type="checkbox" name="input_moviegenre8" value=1> Fantasy<br>
+        <input type="hidden" name="input_moviegenre9" value=0>
         <input type="checkbox" name="input_moviegenre9" value=1> History<br>
+        <input type="hidden" name="input_moviegenre10" value=0>
         <input type="checkbox" name="input_moviegenre10" value=1> Horror<br>
+        <input type="hidden" name="input_moviegenre11" value=0>
         <input type="checkbox" name="input_moviegenre11" value=1> Mystery<br>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <input type="hidden" name="input_moviegenre12" value=0>
         <input type="checkbox" name="input_moviegenre12" value=1> Romance<br>
+        <input type="hidden" name="input_moviegenre13" value=0>
         <input type="checkbox" name="input_moviegenre13" value=1> Sci-Fi<br>
+        <input type="hidden" name="input_moviegenre14" value=0>
         <input type="checkbox" name="input_moviegenre14" value=1> Thriller<br>
+        <input type="hidden" name="input_moviegenre15" value=0>
         <input type="checkbox" name="input_moviegenre15" value=1> War<br>
+        <input type="hidden" name="input_moviegenre16" value=0>
         <input type="checkbox" name="input_moviegenre16" value=1> Western<br>
         <br><br>
         </div>

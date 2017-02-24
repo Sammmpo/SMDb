@@ -79,3 +79,25 @@ VALUES ("Star Wars: The Force Awakens", 2015, "https://www.youtube.com/embed/sGb
 INSERT INTO link (mid, gid) VALUES (2, 1);
 INSERT INTO link (mid, gid) VALUES (2, 2);
 INSERT INTO link (mid, gid) VALUES (2, 9);
+
+INSERT INTO movie (name, year, trailer)
+VALUES ("The Matrix", 1999, "https://www.youtube.com/embed/vKQi3bBA1y8");
+INSERT INTO link (mid, gid) VALUES (3, 1);
+INSERT INTO link (mid, gid) VALUES (3, 14);
+
+INSERT INTO movie (name, year, trailer)
+VALUES ("The Lord of the Rings: The Fellowship of the Ring", 2001, "https://www.youtube.com/embed/V75dMMIW2B4");
+INSERT INTO link (mid, gid) VALUES (4, 2);
+INSERT INTO link (mid, gid) VALUES (4, 7);
+INSERT INTO link (mid, gid) VALUES (4, 9);
+
+INSERT INTO movie (name, year, trailer)
+VALUES ("Forrest Gump", 1994, "https://www.youtube.com/embed/bLvqoHBptjg");
+INSERT INTO link (mid, gid) VALUES (5, 4);
+INSERT INTO link (mid, gid) VALUES (5, 7);
+INSERT INTO link (mid, gid) VALUES (5, 13);
+
+INSERT INTO movie (name, year, trailer)
+VALUES ("The Shawshank Redemption", 1994, "https://www.youtube.com/embed/NmzuHjWmXOc");
+INSERT INTO link (mid, gid) VALUES (6, 5);
+INSERT INTO link (mid, gid) VALUES (6, 7);

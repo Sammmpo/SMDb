@@ -100,11 +100,10 @@ if ($resultp1->num_rows > 0){
                  echo "</span>";
                  echo "<br><br>";
                  if (strlen($row["trailer"]) > 10){
-                   $height = 315;
-                 } else { $height = 0; }
-                 echo "<span class='movie-info'><iframe width='100%' height='$height' src='";
-                 echo $row["trailer"];
-                 echo "' frameborder='0' allowfullscreen></iframe></span>";
+                   echo "<span class='movie-info'><iframe width='100%' height='315' src='";
+                   echo $row["trailer"];
+                   echo "' frameborder='0' allowfullscreen></iframe></span>";
+                 } else { echo "Trailer not available.<br><br>"; }
                  echo "</div><br>";
              }
         }

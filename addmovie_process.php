@@ -18,8 +18,8 @@ $nameLength = strlen($inputName);
 if ($nameLength < 3){
 	echo "Movie Name has to be at least 3 characters long. <br>";
 	header("Refresh:2; url=http://localhost:8080/SMDb/addmovie.php");
-} else if ($inputYear < 1900) {
-	echo "Release year must be later than 1900. <br>";
+} else if ($inputYear < 1000) {
+	echo "Release year must be later than 1000. <br>";
 	header("Refresh:2; url=http://localhost:8080/SMDb/addmovie.php");
 } else {
 
@@ -43,7 +43,7 @@ for ($i=0; $i<=16; $i++) {
 if ($genres[$i] == 1) {
 			$sql = "INSERT INTO link (mID, gID) VALUES ($newestID, $i+1)";
 			if ($conn->query($sql) === TRUE) {
-				echo "Adding Link...";
+				// echo "Adding Genres... ";
 			} else {
 				echo "Error: " . $sql . "<br>" . $conn->error;
 			}

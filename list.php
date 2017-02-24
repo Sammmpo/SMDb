@@ -51,13 +51,17 @@ $currentID = $_SESSION['sessionID'];
 </div>
 
 <div class="div-padding">
-  <span class="bolda">List of All Movies</span>
+  <span class="bolda">Database > All Movies</span>
 </div>
 <div class="div-padding">
 
 </div>
 <form action="search.php" method="post">
 <input class="cleanButton" type="submit" value="Search">
+</form>
+<br>
+<form action="addmovie.php" method="post">
+<input class="yesButton" type="submit" value="Add New Movie">
 </form>
 <br><br>
 
@@ -88,12 +92,7 @@ if ($result->num_rows > 0) {
          }
          echo "</span>";
          echo "<br><br>";
-         if (strlen($row["trailer"]) > 10){
-           $height = 315;
-         } else { $height = 0; }
-         echo "<span class='movie-info'><iframe width='100%' height='$height' src='";
-         echo $row["trailer"];
-         echo "' frameborder='0' allowfullscreen></iframe></span>";
+
          $rowid = $row['id'];
          echo "<form action='remove_process.php' method='post'>";
          echo "<input type='hidden' value='$rowid' name='id'>";
@@ -108,10 +107,6 @@ $conn->close();
 
 ?>
 
-<br><br><br>
-<form action="addmovie.php" method="post">
-<input class="yesButton" type="submit" value="Add New Movie">
-</form>
 
 <div class="div-padding">
   <br><br>
