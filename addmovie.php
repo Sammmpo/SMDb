@@ -15,10 +15,10 @@
 <div class="container">
 
 
-<div class="col-lg-4.5 col-md-3.5 col-sm-3 col-xs-1">
+<div class="col-lg-3 col-md-2 col-sm-1 col-xs-0.5">
 </div>
 
-<div class="col-lg-3 col-md-5 col-sm-6 col-xs-10 whitebg focus">
+<div class="col-lg-6 col-md-8 col-sm-10 col-xs-11 whitebg focus">
 
   <div class="title">
       <h1>SMDb</h1>
@@ -35,9 +35,9 @@
         <input type="text" class="form-control" id="pwd" name="input_movieyear" placeholder="Release Year">
       </div>
 
-      <div class="form-group" style="text-align: left">
+      <div class="form-group" style="text-align: left; font-size: calc(0.75em + 0.75vmin);">
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <input type="hidden" name="input_moviegenre0" value=0>
         <input type="checkbox" name="input_moviegenre0" value=1> Action<br>
         <input type="hidden" name="input_moviegenre1" value=0>
@@ -49,9 +49,9 @@
         <input type="hidden" name="input_moviegenre4" value=0>
         <input type="checkbox" name="input_moviegenre4" value=1> Crime<br>
         <input type="hidden" name="input_moviegenre5" value=0>
-        <input type="checkbox" name="input_moviegenre5" value=1> Document<br>
+        <input type="checkbox" name="input_moviegenre5" value=1> Documentary<br>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <input type="hidden" name="input_moviegenre6" value=0>
         <input type="checkbox" name="input_moviegenre6" value=1> Drama<br>
         <input type="hidden" name="input_moviegenre7" value=0>
@@ -65,7 +65,7 @@
         <input type="hidden" name="input_moviegenre11" value=0>
         <input type="checkbox" name="input_moviegenre11" value=1> Mystery<br>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <input type="hidden" name="input_moviegenre12" value=0>
         <input type="checkbox" name="input_moviegenre12" value=1> Romance<br>
         <input type="hidden" name="input_moviegenre13" value=0>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" id="pwd" name="input_movietrailer" placeholder="Trailer (https://www.youtube.com/embed/YoHD9XEInc0)">
+        <input type="text" class="form-control" id="pwd" name="input_movietrailer" placeholder="YouTube Trailer Link (optional)">
       </div>
       <input type="submit" class="yesButton" value="Add">
       </form>
@@ -98,7 +98,7 @@
 
 </div>
 
-<div class="col-lg-4.5 col-md-3.5 col-sm-3 col-xs-1">
+<div class="col-lg-3 col-md-2 col-sm-1 col-xs-0.5">
 </div>
 
 

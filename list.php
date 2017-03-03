@@ -2,85 +2,57 @@
 <html lang="en">
 <?php include 'includer.php';?>
 
-
-
-<?php
-$currentID = $_SESSION['sessionID'];
-
- function movieName($db, $id) {
-   $query = "SELECT name from movie where id='$id'";
-   $result = mysqli_query($db,$query);
-   $movie = $result->fetch_assoc();
-   echo $movie["name"];
- }
-
- function movieDesc($db, $id){
-   $query = "SELECT description from movie where id='$id'";
-   $result = mysqli_query($db,$query);
-   $movie = $result->fetch_assoc();
-   echo $movie["description"];
- }
-
- function movieReward($db, $id){
-   $query = "SELECT reward from movie where id='$id'";
-   $result = mysqli_query($db,$query);
-   $movie = $result->fetch_assoc();
-   echo $movie["reward"];
- }
-
- ?>
+<?php $currentID = $_SESSION['sessionID']; ?>
 
 <title>SMDb - Database</title>
 
-<head>
-</head>
+<head></head>
 
 <body>
+
 <br>
+
 <div class="container">
 
-<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-</div>
+<div class="col-lg-1 col-md-1 col-sm-1 col-xs-0.0"></div>
 
-<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 whitebg">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 whitebg">
 
-<div class="title">
+  <div class="title">
       <h1>SMDb</h1>
       <br>
       <h2>Sam's Movie Database</h2>
-</div>
+  </div>
 
-<div class="div-padding">
-  <span class="bolda">Database > All Movies</span>
-</div>
-<div class="div-padding">
+<div class="div-padding"><span class="bolda">Database > All Movies</span><br><br></div>
 
-</div>
-<form action="search.php" method="post">
-<input class="cleanButton" type="submit" value="Search">
+<form action="search.php">
+<input class="cleanButton" type="submit" value="Search"><br><br>
 </form>
-<br>
-<form action="addmovie.php" method="post">
-<input class="yesButton" type="submit" value="Add New Movie">
+
+<form action="addmovie.php">
+<input class="yesButton" type="submit" value="Add New Movie"><br><br><br>
 </form>
-<br><br>
 
 <?php
 
-$sql = "SELECT id, name, year, trailer FROM movie";
+// List all movies from the database.
+$sql = "SELECT id, name, year, addedBy FROM movie";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
+     while($row = $result->fetch_assoc()) { // Repeat this x Amount of movies.
+       // Print movie name and year.
          echo "<div class='movie-box'>";
          echo "<span class='movie-title'>" . $row["name"] . " (" . $row["year"] . ")</span>" ;
          echo "<br><br>";
          echo "<span class='movie-info'>Genre: ";
+         // Use movieID (mid) foreign key to find the genres.
          $sql2 = "SELECT mid, gid FROM link WHERE mid = $row[id]";
          $result2 = $conn->query($sql2);
          if ($result2->num_rows > 0){
-           while($row2 = $result2->fetch_assoc()){
+           while($row2 = $result2->fetch_assoc()){ // Find all rows from the Link table that relate to this movieID (mid).
+             // Print genres.
               $sql3 = "SELECT name FROM genre WHERE id = $row2[gid]";
               $result3 = $conn->query($sql3);
               if ($result3->num_rows > 0){
@@ -90,21 +62,20 @@ if ($result->num_rows > 0) {
               }
            }
          }
+         echo "<br><br>Added by: " . $row["addedBy"]; // Print the account name that added this movie to the database.
          echo "</span>";
          echo "<br><br>";
-
          $rowid = $row['id'];
-         echo "<form action='remove_process.php' method='post'>";
-         echo "<input type='hidden' value='$rowid' name='id'>";
+         echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
+         echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
          echo "<input class='movie-complete' type='submit' value='Remove from SMDb'></form>";
          echo "</div><br>";
      }
-} else {
+} else { // Just in case there are no movies in the database.
      echo "<br><div class='noButton'><br>No movies found. Add one!<br><br></div>";
 }
 
 $conn->close();
-
 ?>
 
 
@@ -116,8 +87,7 @@ $conn->close();
 
 </div>
 
-<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-</div>
+<div class="col-lg-1 col-md-1 col-sm-1 col-xs-0.0"></div>
 
 </div>
 <br>

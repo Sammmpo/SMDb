@@ -1,6 +1,7 @@
-/* Import this script with phpMyAdmin to create the SQL table and master account */
-/* The end-user should not need this */
+/* Import this script into phpMyAdmin to setup everything. */
+/* The end-user should not need this. */
 
+/* Be careful, this destroys all manually inserted data. */
 DROP TABLE IF EXISTS account;
 DROP TABLE IF EXISTS link;
 DROP TABLE IF EXISTS genre;
@@ -25,6 +26,7 @@ CREATE TABLE movie (
     name VARCHAR(70) NOT NULL,
     year integer NOT NULL,
     trailer VARCHAR(200),
+    addedBy VARCHAR(70) NOT NULL,
     PRIMARY KEY (id )
 );
 
@@ -54,7 +56,7 @@ INSERT INTO genre (name) VALUES ("Thriller");
 INSERT INTO genre (name) VALUES ("War");
 INSERT INTO genre (name) VALUES ("Western");
 
-/* Links */
+/* Links between Movies and Genres */
 
 CREATE TABLE link (
     id integer NOT NULL AUTO_INCREMENT,
@@ -64,40 +66,41 @@ CREATE TABLE link (
     FOREIGN KEY (mid) REFERENCES movie(id),
     FOREIGN KEY (gid) REFERENCES genre(id)
     */
+    /* Foreign keys are not mandatory, but help protecting from data loss. */
 );
 
 /* Default movies */
 
-INSERT INTO movie (name, year, trailer)
-VALUES ("Inception", 2010, "https://www.youtube.com/embed/YoHD9XEInc0");
+INSERT INTO movie (name, year, trailer, addedBy)
+VALUES ("Inception", 2010, "YoHD9XEInc0", "Default");
 INSERT INTO link (mid, gid) VALUES (1, 1);
 INSERT INTO link (mid, gid) VALUES (1, 2);
 INSERT INTO link (mid, gid) VALUES (1, 14);
 
-INSERT INTO movie (name, year, trailer)
-VALUES ("Star Wars: The Force Awakens", 2015, "https://www.youtube.com/embed/sGbxmsDFVnE");
+INSERT INTO movie (name, year, trailer, addedBy)
+VALUES ("Star Wars VII: The Force Awakens", 2015, "sGbxmsDFVnE", "Default");
 INSERT INTO link (mid, gid) VALUES (2, 1);
 INSERT INTO link (mid, gid) VALUES (2, 2);
 INSERT INTO link (mid, gid) VALUES (2, 9);
 
-INSERT INTO movie (name, year, trailer)
-VALUES ("The Matrix", 1999, "https://www.youtube.com/embed/vKQi3bBA1y8");
+INSERT INTO movie (name, year, trailer, addedBy)
+VALUES ("The Matrix", 1999, "vKQi3bBA1y8", "Default");
 INSERT INTO link (mid, gid) VALUES (3, 1);
 INSERT INTO link (mid, gid) VALUES (3, 14);
 
-INSERT INTO movie (name, year, trailer)
-VALUES ("The Lord of the Rings: The Fellowship of the Ring", 2001, "https://www.youtube.com/embed/V75dMMIW2B4");
+INSERT INTO movie (name, year, trailer, addedBy)
+VALUES ("The Lord of the Rings: The Fellowship of the Ring", 2001, "V75dMMIW2B4", "Default");
 INSERT INTO link (mid, gid) VALUES (4, 2);
 INSERT INTO link (mid, gid) VALUES (4, 7);
 INSERT INTO link (mid, gid) VALUES (4, 9);
 
-INSERT INTO movie (name, year, trailer)
-VALUES ("Forrest Gump", 1994, "https://www.youtube.com/embed/bLvqoHBptjg");
+INSERT INTO movie (name, year, trailer, addedBy)
+VALUES ("Forrest Gump", 1994, "bLvqoHBptjg", "Default");
 INSERT INTO link (mid, gid) VALUES (5, 4);
 INSERT INTO link (mid, gid) VALUES (5, 7);
 INSERT INTO link (mid, gid) VALUES (5, 13);
 
-INSERT INTO movie (name, year, trailer)
-VALUES ("The Shawshank Redemption", 1994, "https://www.youtube.com/embed/NmzuHjWmXOc");
+INSERT INTO movie (name, year, trailer, addedBy)
+VALUES ("The Shawshank Redemption", 1994, "NmzuHjWmXOc", "Default");
 INSERT INTO link (mid, gid) VALUES (6, 5);
 INSERT INTO link (mid, gid) VALUES (6, 7);

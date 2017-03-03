@@ -7,6 +7,17 @@
 $inputName = $_POST['input_moviename'];
 $inputYear = $_POST['input_movieyear'];
 $inputTrailer = $_POST['input_movietrailer'];
+$inputId = $_SESSION['sessionID'];
+
+$sql = "SELECT username FROM account WHERE id=$inputId";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+				$inputUser = $row["username"];
+		}
+}
+
+$convertedTrailer = substr($inputTrailer, 32, 11);
 
 $genres = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -24,7 +35,7 @@ if ($nameLength < 3){
 } else {
 
 
-			$sql = "INSERT INTO movie (name, year, trailer) VALUES ('$inputName', $inputYear, '$inputTrailer')";
+			$sql = "INSERT INTO movie (name, year, trailer, addedBy) VALUES ('$inputName', $inputYear, '$convertedTrailer', '$inputUser')";
 			if ($conn->query($sql) === TRUE) {
 				echo "Adding Movie...";
 			} else {
