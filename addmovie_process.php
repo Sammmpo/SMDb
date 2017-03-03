@@ -28,11 +28,23 @@ $genres[$i] = $_POST['input_moviegenre'.$i];
 $nameLength = strlen($inputName);
 if ($nameLength < 3){
 	echo "Movie Name has to be at least 3 characters long. <br>";
-	header("Refresh:2; url=http://localhost:8080/SMDb/addmovie.php");
+	header("Refresh:2; addmovie.php");
 } else if ($inputYear < 1000) {
-	echo "Release year must be later than 1000. <br>";
-	header("Refresh:2; url=http://localhost:8080/SMDb/addmovie.php");
-} else {
+	echo "Release Year must be later than 1000. <br>";
+	header("Refresh:2; addmovie.php");
+} else
+$sql = "SELECT id FROM movie WHERE id = (SELECT MAX(id) FROM movie)";
+$result = $conn->query($sql);
+$idAmount = 0;
+if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+				$idAmount = $row["id"];
+		}
+}
+if ($idAmount >= 50) { // Limit to avoid database crash.
+	echo "The database is full.<br>";
+	header("Refresh:2; addmovie.php");
+} else { // If requirements are satisfied, continue.
 
 
 			$sql = "INSERT INTO movie (name, year, trailer, addedBy) VALUES ('$inputName', $inputYear, '$convertedTrailer', '$inputUser')";

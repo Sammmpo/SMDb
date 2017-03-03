@@ -16,7 +16,7 @@ CREATE TABLE account (
     PRIMARY KEY (id )
 );
 
-INSERT INTO account (id, username, password)
+INSERT INTO account (id, username, password, size)
 VALUES (1, "master", "password");
 
 /* Movies */
