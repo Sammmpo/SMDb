@@ -8,25 +8,23 @@ $currentID = $_SESSION['sessionID'];
 
 $rowid = $_POST['id'];
 
-
-
-$sql = "DELETE FROM movie WHERE id = $rowid";
+$sql = "DELETE FROM movie WHERE id = $rowid"; // Deleting the movie.
 if (mysqli_query($conn, $sql)) {
-    echo "Success.";
+    echo "The movie has been removed from SMDb.";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
 
-$sql = "DELETE FROM link WHERE mid = $rowid";
+$sql = "DELETE FROM link WHERE mid = $rowid"; // Freeing up space from the link table.
 if (mysqli_query($conn, $sql)) {
-    // echo "Success.";
+    echo "<br><br>Cleaning up the database...";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
 
 mysqli_close($conn);
 
-        header("Refresh:1; url=http://localhost:8080/SMDB/list.php");
+header("Refresh:2; list.php");
 ?>
 </div>
 </html>

@@ -1,5 +1,4 @@
 
-
 body {
   background: lightblue; /* For browsers that do not support gradients */
   background: -webkit-radial-gradient(circle, lightblue, grey); /* Safari */
@@ -33,7 +32,7 @@ h2 {
   font-family: tahoma;
 }
 
-.focus {
+.focus { /* Centers everything, does not work with fullscreen video */
   margin: 0;
   position: absolute;
   top: 50%;
@@ -41,7 +40,7 @@ h2 {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.error {
+.error { /* The middle-screen message to the user */
   margin: 0;
   position: absolute;
   top: 50%;
@@ -50,19 +49,8 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-.div-padding {
+.div-padding { /* Padding all-around */
   padding: 1em;
-}
-
-.movieevement {
-  padding: 1em;
-  margin: auto;
-  width: 80%;
-  height: 5.5em;
-  background-color: lightblue;
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
 }
 
 .movie-title {
@@ -73,35 +61,35 @@ h2 {
   font-size: 0.75em;
   font-family: tahoma;
 }
-.movie-box {
+.movie-box { /* The golden box for movies */
   border-style: solid;
   border-width: 1px;
   border-color: gold;
   color: black;
   background: lightblue;
   background: radial-gradient(circle, gold, orange);
-  padding: 1em;
+  padding: 1%;
 }
-.movie-complete {
+.padding { /* Responsive padding for viewing movies in the database */
+padding-bottom: 1%;
+}
+.movie-remove { /* Remove from SMDB button */
   padding: 0.5em;
   width: 100%;
   background: lightblue;
   border-width: 0px;
   background: radial-gradient(circle, #ff6666, orange);
 }
-.complete {
-  background: lightblue; /* For browsers that do not support gradients */
-  background: radial-gradient(circle, gold, orange); /* Standard syntax */
-}
-.noButton {
+.noButton { /* Red button */
   background: red;
   background: radial-gradient(circle, #ffccb3, #ff9966);
-  border-color: #ffccb3;
+  border-color: #ff9966;
+  border-style: solid;
   border-width: 1px;
   padding: 0.5em;
   width: 100%;
 }
-.yesButton {
+.yesButton { /* Green button */
   background: lightgreen;
   background: radial-gradient(circle, #b3ffb3, #00e68a);
   border-color: #00e68a;
@@ -110,29 +98,29 @@ h2 {
   padding: 0.5em;
   width: 100%;
 }
-.buttonText a {
-  color: black;
-  text-decoration: none;
-}
-.cleanButton {
+.cleanButton { /* Blue button */
   background: lightblue;
   background: radial-gradient(circle, #cceeff,  #80d4ff);
+  border-color: #80d4ff;
   border-width: 1px;
   border-style: solid;
   padding: 0.5em;
   width: 100%;
 }
+.buttonText a { /* Button text */
+  color: black;
+  text-decoration: none;
+}
 
-
-.bolda {
+.bolda { /* Bold text */
   font-weight: bold;
 }
 
-.cloak {
+.cloak { /* Hidden element */
   visibility: hidden;
 }
 
-.whitebg {
+.whitebg { /* White background */
 	background-color: white;
 	border-radius: 1em;
 }
@@ -141,6 +129,4 @@ h2 {
 	background-color: lightblue;
 }
 
-/*
-* — Useless crap below —
-*/
+/* — End of file — */

@@ -17,11 +17,11 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $currentID = $row["id"];
         $_SESSION['sessionID'] = $currentID; // Session now knows the account ID
-        echo "Logged in successfully. You will be sent to your page.";
+        echo "Logged in successfully.<br><br>Entering SMDb...";
         header("Refresh:3; list.php");
     }
 } else { // There is no account with this username-password combination
-    echo "Invalid Username or Password. Try again.";
+    echo "Invalid Username or Password.<br><br>Please try again.";
     header("Refresh:2; login.php");
 }
 

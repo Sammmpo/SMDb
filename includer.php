@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 
+<!-- This file is being included to all files. The idea is to have less lines of code. -->
+
 <?php
 	session_start();
     $servername = "localhost";

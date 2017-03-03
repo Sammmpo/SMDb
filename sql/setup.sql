@@ -67,6 +67,7 @@ CREATE TABLE link (
     FOREIGN KEY (gid) REFERENCES genre(id)
     */
     /* Foreign keys are not mandatory, but help protecting from data loss. */
+    /* To use foreign key references, delete DROP TABLE commands in the beginning. */
 );
 
 /* Default movies */

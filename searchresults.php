@@ -51,10 +51,10 @@ $match = $results[($search-1)]; // Matching the int (genreID) to a String (genre
         if ($result->num_rows > 0) {
              while($row = $result->fetch_assoc()) { // Printing all movies with the searched genre.
                  echo "<div class='movie-box'>";
-                 echo "<span class='movie-title'>" . $row["name"] . " (" . $row["year"] . ")</span>" ;
-                 echo "<br><br>";
+                 echo "<div class='padding'><span class='movie-title'>" . $row["name"] . " (" . $row["year"] . ")</span></div>" ;
 
-                 echo "<span class='movie-info'>Genre: "; // Finding out what other genres match this movie.
+
+                 echo "<div class='padding'><span class='movie-info'>Genre: "; // Finding out what other genres match this movie.
                  $sql2 = "SELECT mid, gid FROM link WHERE mid = $row[id]";
                  $result2 = $conn->query($sql2);
                  if ($result2->num_rows > 0){
@@ -68,10 +68,10 @@ $match = $results[($search-1)]; // Matching the int (genreID) to a String (genre
                       }
                    }
                  }
-                 echo "</span>";
-                 echo "<br><br><span class='movie-info'>";
+                 echo "</span></div>";
+                 echo "<span class='movie-info'>";
                  if (strlen($row["trailer"]) > 10){
-                   echo "<center><iframe style='height:310px; width:560px;' class='img-responsive' src='https://www.youtube.com/embed/";
+                   echo "<center><iframe style='height:19.25vmax; width:35vmax;' class='img-responsive' src='https://www.youtube.com/embed/";
                    echo $row["trailer"];
                    echo "' frameborder='0' allowfullscreen></iframe></center>";
                  } else { echo "Trailer not available.<br><br>"; }

@@ -44,9 +44,8 @@ if ($result->num_rows > 0) {
      while($row = $result->fetch_assoc()) { // Repeat this x Amount of movies.
        // Print movie name and year.
          echo "<div class='movie-box'>";
-         echo "<span class='movie-title'>" . $row["name"] . " (" . $row["year"] . ")</span>" ;
-         echo "<br><br>";
-         echo "<span class='movie-info'>Genre: ";
+         echo "<div class='padding'><span class='movie-title'>" . $row["name"] . " (" . $row["year"] . ")</span></div>";
+         echo "<span class='movie-info'><div class='padding'>Genre: ";
          // Use movieID (mid) foreign key to find the genres.
          $sql2 = "SELECT mid, gid FROM link WHERE mid = $row[id]";
          $result2 = $conn->query($sql2);
@@ -62,13 +61,12 @@ if ($result->num_rows > 0) {
               }
            }
          }
-         echo "<br><br>Added by: " . $row["addedBy"]; // Print the account name that added this movie to the database.
+         echo "</div><div class='padding'>Added by: " . $row["addedBy"] ."</div>"; // Print the account name that added this movie to the database.
          echo "</span>";
-         echo "<br><br>";
          $rowid = $row['id'];
          echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
          echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
-         echo "<input class='movie-complete' type='submit' value='Remove from SMDb'></form>";
+         echo "<input class='movie-remove' type='submit' value='Remove from SMDb'></form>";
          echo "</div><br>";
      }
 } else { // Just in case there are no movies in the database.
