@@ -8,7 +8,7 @@ Application features:
 
 - Account Creation
 
-- Log in and session management
+- Log in and session management with cookies
 
 - View database, search database
 
@@ -17,3 +17,5 @@ Application features:
 - Delete from database
 
 - Error handling
+
+- Password encryption
