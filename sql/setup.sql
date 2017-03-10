@@ -13,11 +13,12 @@ CREATE TABLE account (
     id integer NOT NULL AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL,
+    admin BOOLEAN DEFAULT false,
     PRIMARY KEY (id )
 );
 
-INSERT INTO account (id, username, password, size)
-VALUES (1, "master", "password");
+INSERT INTO account (id, username, password, admin)
+VALUES (1, "Sam", "abJnggxhB/yWI", true);
 
 /* Movies */
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includer.php';?>
+<?php include 'session_checker.php';?>
 
 <div class="error">
 <?php

@@ -2,6 +2,53 @@
 <html lang="en">
 <?php include 'includer.php';?>
 
+<div class="error">
+<?php
+
+if (isset($_COOKIE['sessionID'])){
+	$_SESSION['sessionID'] = $_COOKIE['sessionID'];
+	}
+if (isset($_SESSION['sessionID'])) {
+	$temp = $_SESSION['sessionID'];
+	$query = "SELECT id FROM account WHERE id='$temp'";
+	$result = mysqli_query($db,$query);
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)) {
+			setcookie('sessionID', $row['id'], time() + (60 * 60 * 24 * 30)); // Setting up the cookie.
+			echo "Continuing Session...<br><br>Entering SMDb...";
+			header("Refresh:2; list.php");
+		}
+		} else { // There is no account with this username-password combination
+			echo "Something went wrong.<br><br>Logged out.";
+      // If the user is logged in, delete the session data and destroy the session
+      if (isset($_SESSION['sessionID'])) {
+
+        // Delete the session data by clearing the $_SESSION array
+        $_SESSION = array();
+
+        // Delete the session cookie by setting its expiration to an hour ago (3600)
+        if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), '', time() - 3600);
+        }
+
+        // Destroy the session
+        session_destroy();
+      }
+
+      // Delete the cookie by setting its expiration to an hour ago (3600 secs)
+      setcookie('sessionID', '', time() - 3600);
+
+      // Redirect to the home page
+			header("Refresh:2; login.php");
+		}
+	} else { // If there are no cookies or sessions.
+
+?>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
 <title>SMDb - Login</title>
 <head></head>
 
@@ -42,3 +89,6 @@
 </body>
 
 </html>
+
+<?php } // This is to close the else-statement
+ ?>

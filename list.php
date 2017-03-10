@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includer.php';?>
+<?php include 'session_checker.php';?>
 
 <?php $currentID = $_SESSION['sessionID']; ?>
 
@@ -63,11 +64,19 @@ if ($result->num_rows > 0) {
          }
          echo "</div><div class='padding'>Added by: " . $row["addedBy"] ."</div>"; // Print the account name that added this movie to the database.
          echo "</span>";
+
+         $queryAdmin = "SELECT admin FROM account WHERE id=$currentID";
+         $resultsAdmin = $conn->query($queryAdmin);
+         $admin = mysqli_fetch_row($resultsAdmin);
+         if ($admin[0] == true) {
          $rowid = $row['id'];
-         echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
-         echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
-         echo "<input class='movie-remove' type='submit' value='Remove from SMDb'></form>";
-         echo "</div><br>";
+           echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
+           echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
+           echo "<input class='movie-remove' type='submit' value='Remove from SMDb'></form>";
+         }
+
+           echo "</div><br>";
+
      }
 } else { // Just in case there are no movies in the database.
      echo "<br><div class='noButton'><br>No movies found. Add one!<br><br></div>";
@@ -79,7 +88,7 @@ $conn->close();
 
 <div class="div-padding">
   <br><br>
-  <a href="login.php">Log out</a>
+  <a href="logout_process.php">Log out</a>
   <br><br>
 </div>
 

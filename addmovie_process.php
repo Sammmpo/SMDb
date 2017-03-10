@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includer.php';?>
+<?php include 'session_checker.php';?>
 
 <div class="error">
 <?php
@@ -73,7 +74,7 @@ if ($genres[$i] == 1) {
 		}
 }
 
-			header("Refresh:1; url=http://localhost:8080/SMDb/list.php");
+			header("Refresh:1; list.php");
 
 }
 ?>

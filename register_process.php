@@ -8,15 +8,16 @@
 
 $insertedUsername = $_POST['input_username'];
 $unlength = strlen($insertedUsername);
-if ($unlength < 4){ // Preventing extremely short usernames.
-	echo "Username needs to be at least 4 characters long.";
+if ($unlength < 4 || $unlength > 12){ // Preventing extremely short usernames.
+	echo "Username needs 4-12 characters long.";
 	header("Refresh:3; register.php");
 } else { // If enough characters, continue.
 
 $insertedPassword = $_POST['input_password'];
+$cryptedPassword = crypt($insertedPassword, "abc");
 $pwlength = strlen($insertedPassword);
-if ($pwlength < 4){ // Preventing extremely short passwords.
-	echo "Password needs to be at least 4 characters long.";
+if ($pwlength < 4 || $pwlength > 15){ // Preventing extremely short passwords.
+	echo "Password needs to be 4-15 characters long.";
 	header("Refresh:3; register.php");
 } else { // If enough characters, continue.
 
@@ -32,7 +33,7 @@ if ($pwlength < 4){ // Preventing extremely short passwords.
 
 // Making sure the "password" and "confirm password" match each other.
 if ( $_POST['input_password'] === $_POST['input_passwordagain']) { // If true, account is ready to be created.
-				$sql = "INSERT INTO account (username, password) VALUES ('$_POST[input_username]', '$_POST[input_password]')";
+				$sql = "INSERT INTO account (username, password) VALUES ('$insertedUsername', '$cryptedPassword')";
 				if ($conn->query($sql) === TRUE) {
 					echo "Your account was created successfully.<br><br>Please log in.";
 					header("Refresh:3; login.php");

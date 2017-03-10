@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includer.php';?>
-
+<?php include 'session_checker.php';?>
 
 <title>SMDb - Add Movie</title>
 
@@ -91,7 +91,7 @@
       <input class="noButton" type="submit" value="Cancel">
       </form>
     <br><br><br>
-    <a href="login.php">Log out</a>
+    <a href="logout_process.php">Log out</a>
       <br><br><br>
 
 
