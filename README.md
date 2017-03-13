@@ -8,7 +8,7 @@ What is SMDb and what features does it have?
 - The website is responsive to all mainstream screen sizes.
 - Movies can have an embedded YouTube trailer.
 - All official movie genres from IMDb (Internet Movie Database) are supported.
-- Admin users can delete any movie from the database, while normal users can only delete their own.
+- Admin users can delete any movie from the database, while normal users can only delete their own. To become an admin, Sam must first trust you.
 - The website uses cookies to remember user-account login information.
 - Passwords are encrypted with a non-decryptable method.
 
