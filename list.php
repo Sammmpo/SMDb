@@ -68,7 +68,12 @@ if ($result->num_rows > 0) {
          $queryAdmin = "SELECT admin FROM account WHERE id=$currentID";
          $resultsAdmin = $conn->query($queryAdmin);
          $admin = mysqli_fetch_row($resultsAdmin);
-         if ($admin[0] == true) {
+
+         $creator = $row["addedBy"];
+         $queryCreator = "SELECT id FROM account WHERE username='$creator'";
+         $resultsCreator = $conn->query($queryCreator);
+         $creatorID = mysqli_fetch_row($resultsCreator);
+         if ($creatorID[0] == $currentID || $admin[0] == true) {  // The user has to be the creator or admin in order to delete movies from SMDb.
          $rowid = $row['id'];
            echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
            echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
