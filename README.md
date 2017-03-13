@@ -1,5 +1,3 @@
-((( WORK IN PROGRESS! )))
-
 SMDb - Sam's Movie Database
 
 This project was created for PHP course in Laurea University of Applied Sciences.
