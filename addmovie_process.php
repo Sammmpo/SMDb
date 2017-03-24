@@ -33,7 +33,8 @@ if ($nameLength < 3){
 } else if ($inputYear < 1000) {
 	echo "Release Year must be later than 1000. <br>";
 	header("Refresh:2; addmovie.php");
-} else
+} else {
+
 $sql = "SELECT id FROM movie WHERE id = (SELECT MAX(id) FROM movie)";
 $result = $conn->query($sql);
 $idAmount = 0;
@@ -47,13 +48,18 @@ if ($idAmount >= 50) { // Limit to avoid database crash.
 	header("Refresh:2; addmovie.php");
 } else { // If requirements are satisfied, continue.
 
+			if ($stmtAddMovie->execute()) { // Prepared Statement
+			  echo "Adding Movie...";
+			} else {
+			  echo "Something went wrong.";
+			}
 
-			$sql = "INSERT INTO movie (name, year, trailer, addedBy) VALUES ('$inputName', $inputYear, '$convertedTrailer', '$inputUser')";
+			/*$sql = "INSERT INTO movie (name, year, trailer, addedBy) VALUES ('$inputName', $inputYear, '$convertedTrailer', '$inputUser')";
 			if ($conn->query($sql) === TRUE) {
 				echo "Adding Movie...";
 			} else {
 				echo "Error: " . $sql . "<br>" . $conn->error;
-			}
+			}*/
 
 			$sql = "SELECT id FROM movie WHERE id = (SELECT MAX(id) FROM movie)";
 			$result = $conn->query($sql);
@@ -65,17 +71,23 @@ if ($idAmount >= 50) { // Limit to avoid database crash.
 
 for ($i=0; $i<=16; $i++) {
 if ($genres[$i] == 1) {
-			$sql = "INSERT INTO link (mID, gID) VALUES ($newestID, $i+1)";
+		$temp = $i + 1;
+		if ($stmtAddLink->execute()) { // Prepared Statement
+			// echo "<br><br>Adding Genres... ";
+		} else {
+			echo "Something went wrong.";
+		}
+			/*$sql = "INSERT INTO link (mID, gID) VALUES ($newestID, $i+1)";
 			if ($conn->query($sql) === TRUE) {
 				// echo "Adding Genres... ";
 			} else {
 				echo "Error: " . $sql . "<br>" . $conn->error;
-			}
+			}*/
 		}
 }
 
 			header("Refresh:1; list.php");
-
+}
 }
 ?>
 </div>

@@ -33,14 +33,23 @@ if ($pwlength < 4 || $pwlength > 15){ // Preventing extremely short passwords.
 
 // Making sure the "password" and "confirm password" match each other.
 if ( $_POST['input_password'] === $_POST['input_passwordagain']) { // If true, account is ready to be created.
-				$sql = "INSERT INTO account (username, password) VALUES ('$insertedUsername', '$cryptedPassword')";
+
+	if ($stmtRegister->execute()) { // Prepared Statement
+	  echo "Your account was created successfully.<br><br>Please log in.";
+		header("Refresh:3; login.php");
+	} else {
+	  echo "Something went wrong.";
+		header("Refresh:4; register.php");
+	}
+
+				/*$sql = "INSERT INTO account (username, password) VALUES ('$insertedUsername', '$cryptedPassword')";
 				if ($conn->query($sql) === TRUE) {
 					echo "Your account was created successfully.<br><br>Please log in.";
 					header("Refresh:3; login.php");
 				} else { // If unexpected error happens, returns back to the Register page.
 					echo "<br>Error: " . $sql . "<br>" . $conn->error;
 					header("Refresh:4; register.php");
-				}
+				}*/
 	} else {
 				echo  "<br> Your passwords do not match.<br><br>Please try again.";
 				header("Refresh:3; register.php");

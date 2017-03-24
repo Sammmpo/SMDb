@@ -9,19 +9,33 @@ $currentID = $_SESSION['sessionID'];
 
 $rowid = $_POST['id'];
 
+if ($stmtDelete->execute()) { // Prepared Statement
+  echo "The movie has been removed from SMDb.";
+} else {
+  echo "Something went wrong.";
+}
+
+/*
 $sql = "DELETE FROM movie WHERE id = $rowid"; // Deleting the movie.
 if (mysqli_query($conn, $sql)) {
     echo "The movie has been removed from SMDb.";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
+*/
 
-$sql = "DELETE FROM link WHERE mid = $rowid"; // Freeing up space from the link table.
+if ($stmtDeleteLink->execute()) { // Prepared Statement
+  echo "<br><br>Cleaning up the database...";
+} else {
+  echo "Something went wrong.";
+}
+
+/*$sql = "DELETE FROM link WHERE mid = $rowid"; // Freeing up space from the link table.
 if (mysqli_query($conn, $sql)) {
     echo "<br><br>Cleaning up the database...";
 } else {
     echo "Error updating record: " . mysqli_error($conn);
-}
+}*/
 
 mysqli_close($conn);
 
