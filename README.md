@@ -8,7 +8,7 @@ What is SMDb and what features does it have?
 - The website is responsive to all mainstream screen sizes.
 - Movies can have an embedded YouTube trailer.
 - All official movie genres from IMDb (Internet Movie Database) are supported.
-- Admin users can delete any movie from the database, while normal users can only delete their own. To become an admin, Sam must first trust you.
+- Admin users can delete any movie from the database, while normal users can only delete their own. To become an admin, contact the server administrator.
 - The website uses cookies to remember user-account login information.
 - Passwords are encrypted with a non-decryptable method.
 
@@ -17,4 +17,4 @@ How to Setup:
 - Launch Apache and MySQL (with XAMPP for example).
 - Go to phpMyAdmin, create a database "smdb" and import the .SQL script (it creates the tables and inserts default movies).
 - Open "http://localhost:8080/SMDb/login.php" in your web browser (assuming "8080" is your Apache port number, which is "80" by default).
-- Enjoy the App experience!
+- Enjoy the App! :)

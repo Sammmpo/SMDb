@@ -1,3 +1,7 @@
+<?php
+/* This is ran when the Logout-button is pressed. */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includer.php';?>

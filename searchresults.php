@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'includer.php';?>
-<?php include 'session_checker.php';?>
+<?php
+include 'includer.php';
+include 'session_checker.php';
+?>
 
 <?php
-$currentID = $_SESSION['sessionID']; // Just in case we need to know who we are.
-$search = $_POST['genre']; // Value of 1-17, aka genre ID.
-$results = array("Action", "Adventure", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western");
-$match = $results[($search-1)]; // Matching the int (genreID) to a String (genre).
- ?>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $currentID = $_SESSION['sessionID']; // Just in case we need to know who we are.
+  $search = $_POST['genre']; // Value of 1-17, aka genre ID.
+  $results = array("Action", "Adventure", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western");
+  $match = $results[($search-1)]; // Matching the 1-17 genres with the 0-16 array.
+} else { header("Location: login.php"); }
+?>
 
 <title>SMDb - Movie List</title>
 

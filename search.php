@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'includer.php';?>
-<?php include 'session_checker.php';?>
+<?php
+include 'includer.php';
+include 'session_checker.php';
+?>
 
 <title>SMDb - Search</title>
 

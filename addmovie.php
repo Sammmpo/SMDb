@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'includer.php';?>
-<?php include 'session_checker.php';?>
+<?php
+include 'includer.php';
+include 'session_checker.php';
+?>
 
 <title>SMDb - Add Movie</title>
 
@@ -9,11 +11,9 @@
 
 </head>
 
-
 <body>
 
 <div class="container">
-
 
 <div class="col-lg-3 col-md-2 col-sm-1 col-xs-0.5">
 </div>
