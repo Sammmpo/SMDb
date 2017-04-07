@@ -27,7 +27,7 @@ CREATE TABLE movie (
     name VARCHAR(70) NOT NULL,
     year integer NOT NULL,
     trailer VARCHAR(200),
-    addedBy VARCHAR(70) NOT NULL,
+    addedBy integer NOT NULL,
     PRIMARY KEY (id )
 );
 
@@ -74,35 +74,35 @@ CREATE TABLE link (
 /* Default movies */
 
 INSERT INTO movie (name, year, trailer, addedBy)
-VALUES ("Inception", 2010, "YoHD9XEInc0", "Default");
+VALUES ("Inception", 2010, "YoHD9XEInc0", "0");
 INSERT INTO link (mid, gid) VALUES (1, 1);
 INSERT INTO link (mid, gid) VALUES (1, 2);
 INSERT INTO link (mid, gid) VALUES (1, 14);
 
 INSERT INTO movie (name, year, trailer, addedBy)
-VALUES ("Star Wars VII: The Force Awakens", 2015, "sGbxmsDFVnE", "Default");
+VALUES ("Star Wars VII: The Force Awakens", 2015, "sGbxmsDFVnE", "0");
 INSERT INTO link (mid, gid) VALUES (2, 1);
 INSERT INTO link (mid, gid) VALUES (2, 2);
 INSERT INTO link (mid, gid) VALUES (2, 9);
 
 INSERT INTO movie (name, year, trailer, addedBy)
-VALUES ("The Matrix", 1999, "vKQi3bBA1y8", "Default");
+VALUES ("The Matrix", 1999, "vKQi3bBA1y8", "0");
 INSERT INTO link (mid, gid) VALUES (3, 1);
 INSERT INTO link (mid, gid) VALUES (3, 14);
 
 INSERT INTO movie (name, year, trailer, addedBy)
-VALUES ("The Lord of the Rings: The Fellowship of the Ring", 2001, "V75dMMIW2B4", "Default");
+VALUES ("The Lord of the Rings: The Fellowship of the Ring", 2001, "V75dMMIW2B4", "0");
 INSERT INTO link (mid, gid) VALUES (4, 2);
 INSERT INTO link (mid, gid) VALUES (4, 7);
 INSERT INTO link (mid, gid) VALUES (4, 9);
 
 INSERT INTO movie (name, year, trailer, addedBy)
-VALUES ("Forrest Gump", 1994, "bLvqoHBptjg", "Default");
+VALUES ("Forrest Gump", 1994, "bLvqoHBptjg", "0");
 INSERT INTO link (mid, gid) VALUES (5, 4);
 INSERT INTO link (mid, gid) VALUES (5, 7);
 INSERT INTO link (mid, gid) VALUES (5, 13);
 
 INSERT INTO movie (name, year, trailer, addedBy)
-VALUES ("The Shawshank Redemption", 1994, "NmzuHjWmXOc", "Default");
+VALUES ("The Shawshank Redemption", 1994, "NmzuHjWmXOc", "0");
 INSERT INTO link (mid, gid) VALUES (6, 5);
 INSERT INTO link (mid, gid) VALUES (6, 7);
