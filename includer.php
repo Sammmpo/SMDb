@@ -40,7 +40,7 @@ $stmtRegister = $conn->prepare("INSERT INTO account (username, password) VALUES 
 $stmtRegister->bind_param("ss", $insertedUsername, $cryptedPassword);
 
 $stmtAddMovie = $conn->prepare("INSERT INTO movie (name, year, trailer, addedBy) VALUES (?, ?, ?, ?)");
-$stmtAddMovie->bind_param("ssss", $inputName, $inputYear, $convertedTrailer, $addedBy);
+$stmtAddMovie->bind_param("ssss", $inputName, $inputYear, $convertedTrailer, $inputId);
 
 $stmtAddLink = $conn->prepare("INSERT INTO link (mID, gID) VALUES (?, ?)");
 $stmtAddLink->bind_param("ss", $newestMID, $newestGID);

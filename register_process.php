@@ -11,10 +11,12 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+	$_SESSION['input_username'] = $_POST['input_username'];
+
 	$insertedUsername = $_POST['input_username'];
 	$unlength = strlen($insertedUsername);
 	if ($unlength < 4 || $unlength > 12){ // Preventing extremely short usernames.
-		echo "Username needs 4-12 characters long.";
+		echo "Username needs to be 4-12 characters long.";
 		header("Refresh:3; register.php");
 	} else { // If enough characters, continue.
 
@@ -50,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	} else {
 				echo  "<br> Your passwords do not match.<br><br>Please try again.";
+				$_SESSION['input_passwordagain_error'] = "Your passwords do not match.";
 				header("Refresh:3; register.php");
 	}}}
 

@@ -9,7 +9,7 @@ include 'session_checker.php';
 $currentID = $_SESSION['sessionID'];
 ?>
 
-<title>SMDb - Database</title>
+<title>SMDb - My Movies</title>
 
 <head></head>
 
@@ -23,16 +23,18 @@ $currentID = $_SESSION['sessionID'];
 
 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 whitebg">
 
+<a class="nounderline" href="list.php">
   <div class="title">
       <h1>SMDb</h1>
       <br>
       <h2>Sam's Movie Database</h2>
   </div>
+</a>
 
-<div class="div-padding"><span class="bolda">Database > All Movies</span><br><br></div>
+<div class="div-padding"><span class="bolda">Database > My Movies</span><br><br></div>
 
 <form action="search.php">
-<input class="cleanButton" type="submit" value="Search"><br><br>
+<input class="cleanButton" type="submit" value="Search Database"><br><br>
 </form>
 
 <form action="addmovie.php">
@@ -42,8 +44,16 @@ $currentID = $_SESSION['sessionID'];
 <?php
 
 // List all movies from the database.
-$sql    = "SELECT id, name, year, addedBy FROM movie";
+$sql    = "SELECT id, name, year, trailer, addedBy FROM movie WHERE addedBy=$currentID";
+$queryAdmin   = "SELECT admin FROM account WHERE id=$currentID";
+$resultsAdmin = $conn->query($queryAdmin);
+$admin        = mysqli_fetch_row($resultsAdmin);
+if ($admin[0] == true) {
+  $sql    = "SELECT id, name, year, trailer, addedBy FROM movie";
+}
 $result = $conn->query($sql);
+
+
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) { // Repeat this x Amount of movies.
@@ -66,23 +76,29 @@ if ($result->num_rows > 0) {
                 }
             }
         }
-        echo "</div><div class='padding'>Added by: " . $row["addedBy"] . "</div>"; // Print the account name that added this movie to the database.
+        $inputId = $row["addedBy"];
+        $stmtFindUsername->execute();
+        $stmtFindUsername->bind_result($resultName);
+        $stmtFindUsername->store_result();
+        $stmtFindUsername->fetch();
+        if ($stmtFindUsername->num_rows > 0) {
+            $addedBy = $resultName;
+        } else { $addedBy = "Default"; }
+        echo "</div><div class='padding'>Added by: " . $addedBy . "</div>"; // Print the account name that added this movie to the database.
         echo "</span>";
 
-        $queryAdmin   = "SELECT admin FROM account WHERE id=$currentID";
-        $resultsAdmin = $conn->query($queryAdmin);
-        $admin        = mysqli_fetch_row($resultsAdmin);
+        echo "<span class='movie-info'>";
+        if (strlen($row["trailer"]) > 10){
+          echo "<center><iframe style='height:19.25vmax; width:35vmax;' class='img-responsive' src='https://www.youtube.com/embed/";
+          echo $row["trailer"];
+          echo "' frameborder='0' allowfullscreen></iframe></center><br>";
+        } else { echo "Trailer not available.<br><br>"; }
+        echo "</span>";
 
-        $creator        = $row["addedBy"];
-        $queryCreator   = "SELECT id FROM account WHERE username='$creator'";
-        $resultsCreator = $conn->query($queryCreator);
-        $creatorID      = mysqli_fetch_row($resultsCreator);
-        if ($creatorID[0] == $currentID || $admin[0] == true) { // The user has to be the creator or admin in order to delete movies from SMDb.
             $rowid = $row['id'];
             echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
             echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
             echo "<input class='movie-remove' type='submit' value='Remove from SMDb'></form>";
-        }
 
         echo "</div><br>";
 

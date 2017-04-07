@@ -32,11 +32,13 @@ if (isset($_SESSION['sessionID'])) {
 
 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-11 whitebg focus">
 
-  <div class="title">
-      <h1>SMDb</h1>
-      <br>
-      <h2>Sam's Movie Database</h2>
-  </div>
+	<a class="nounderline" href="list.php">
+	  <div class="title">
+	      <h1>SMDb</h1>
+	      <br>
+	      <h2>Sam's Movie Database</h2>
+	  </div>
+	</a>
 
   <form action="login_process.php" method="post">
     <div class="form-group">

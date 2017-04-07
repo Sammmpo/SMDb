@@ -20,19 +20,21 @@ include 'session_checker.php';
 
 <div class="col-lg-6 col-md-8 col-sm-10 col-xs-11 whitebg focus">
 
-  <div class="title">
-      <h1>SMDb</h1>
-      <br>
-      <h2>Sam's Movie Database</h2>
-</div>
+  <a class="nounderline" href="list.php">
+    <div class="title">
+        <h1>SMDb</h1>
+        <br>
+        <h2>Sam's Movie Database</h2>
+    </div>
+  </a>
 
   <span class="text">Movie Details</span><br><br>
     <form action="addmovie_process.php" method="POST">
       <div class="form-group">
-        <input type="text" class="form-control" id="username" name="input_moviename" placeholder="Movie Name">
+        <input type="text" class="form-control" id="username" name="input_moviename" value="<?php if (isset($_SESSION['input_moviename'])) { echo $_SESSION['input_moviename']; } ?>" placeholder="Movie Name">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" id="pwd" name="input_movieyear" placeholder="Release Year">
+        <input type="text" class="form-control" id="pwd" name="input_movieyear" value="<?php if (isset($_SESSION['input_movieyear'])) { echo $_SESSION['input_movieyear']; } ?>" placeholder="Release Year">
       </div>
 
       <div class="form-group" style="text-align: left; font-size: calc(0.75em + 0.75vmin);">
@@ -82,7 +84,7 @@ include 'session_checker.php';
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" id="pwd" name="input_movietrailer" placeholder="YouTube Trailer Link (optional)">
+        <input type="text" class="form-control" id="pwd" name="input_movietrailer" value="<?php if (isset($_SESSION['input_movietrailer'])) { echo $_SESSION['input_movietrailer']; } ?>"placeholder="YouTube Trailer Link (optional)">
       </div>
       <input type="submit" class="yesButton" value="Add">
       </form>

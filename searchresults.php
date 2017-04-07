@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else { header("Location: login.php"); }
 ?>
 
-<title>SMDb - Movie List</title>
+<title>SMDb - Search Results</title>
 
 <head></head>
 
@@ -26,20 +26,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 whitebg">
 
-<div class="title">
-      <h1>SMDb</h1>
-      <br>
-      <h2>Sam's Movie Database</h2>
-</div>
+  <a class="nounderline" href="list.php">
+    <div class="title">
+        <h1>SMDb</h1>
+        <br>
+        <h2>Sam's Movie Database</h2>
+    </div>
+  </a>
 
 <div class="div-padding">
-  <span class="bolda">Search Results for "<?php echo $match; ?>"</span>
+  <span class="bolda">Database > "<?php echo $match; ?>" Movies</span>
 </div>
 <div class="div-padding">
 
 </div>
 <form action="search.php" method="post">
-<input class="cleanButton" type="submit" value="Search">
+<input class="cleanButton" type="submit" value="Search Database">
 </form>
 <br><br>
 
@@ -51,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultp2->num_rows > 0){
       while ($rowp2 = $resultp2->fetch_assoc()){
 
-        $sql = "SELECT id, name, year, trailer FROM movie WHERE id = $rowp2[mid]"; // Using movieIDs to find the movie details.
+        $sql = "SELECT id, name, year, trailer, addedBy FROM movie WHERE id = $rowp2[mid]"; // Using movieIDs to find the movie details.
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
              while($row = $result->fetch_assoc()) { // Printing all movies with the searched genre.
@@ -73,7 +75,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       }
                    }
                  }
-                 echo "</span></div>";
+                 $inputId = $row["addedBy"];
+                 $stmtFindUsername->execute();
+                 $stmtFindUsername->bind_result($resultName);
+                 $stmtFindUsername->store_result();
+                 $stmtFindUsername->fetch();
+                 if ($stmtFindUsername->num_rows > 0) {
+                     $addedBy = $resultName;
+                 } else { $addedBy = "Default"; }
+                 echo "</div><div class='padding movie-info'>Added by: " . $addedBy . "</div>"; // Print the account name that added this movie to the database.
+
+
+
                  echo "<span class='movie-info'>";
                  if (strlen($row["trailer"]) > 10){
                    echo "<center><iframe style='height:19.25vmax; width:35vmax;' class='img-responsive' src='https://www.youtube.com/embed/";
@@ -84,12 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              }
         }
       }
-    } else { echo "<br><div class='noButton'><br>No movies found.<br><br></div>"; } // If there are no movies of the searched Genre.
+    } else { echo "<div class='noButton'><br>No movies found.<br><br></div>"; } // If there are no movies of the searched Genre.
 
 $conn->close();
 ?>
 
-<br><br><br>
+<br><br>
   <form action="list.php" method="post">
   <input class="noButton" type="submit" value="Back">
 </form>

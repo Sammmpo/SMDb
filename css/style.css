@@ -19,6 +19,8 @@ body {
 	padding-bottom: 3em;
 }
 
+a.nounderline {text-decoration: none; }
+
 h1 {
 	font-size: 4em;
 	font-weight: bold;

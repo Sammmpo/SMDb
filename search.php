@@ -17,11 +17,13 @@ include 'session_checker.php';
 
 <div class="col-lg-6 col-md-8 col-sm-10 col-xs-11 whitebg focus">
 
-  <div class="title">
-      <h1>SMDb</h1>
-      <br>
-      <h2>Sam's Movie Database</h2>
-  </div>
+  <a class="nounderline" href="list.php">
+    <div class="title">
+        <h1>SMDb</h1>
+        <br>
+        <h2>Sam's Movie Database</h2>
+    </div>
+  </a>
 
   <span class="text">Select Genre</span><br>
     <form action="searchresults.php" method="POST">

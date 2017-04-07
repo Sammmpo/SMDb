@@ -18,6 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputTrailer = $_POST['input_movietrailer'];
     $inputId      = $_SESSION['sessionID'];
 
+    $_SESSION['input_moviename'] = $_POST['input_moviename'];
+    $_SESSION['input_movieyear'] = $_POST['input_movieyear'];
+    $_SESSION['input_movietrailer'] = $_POST['input_movietrailer'];
+
+
     $stmtFindUsername->execute();
     $stmtFindUsername->bind_result($result);
     $stmtFindUsername->store_result();
@@ -80,6 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
             }
+            $_SESSION['input_moviename'] = "";
+            $_SESSION['input_movieyear'] = "";
+            $_SESSION['input_movietrailer'] = "";
             header("Refresh:1; list.php");
         }
     }
