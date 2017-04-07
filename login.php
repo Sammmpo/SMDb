@@ -18,8 +18,6 @@ if (isset($_SESSION['sessionID'])) {
 ?>
 </div>
 
-<!DOCTYPE html>
-<html lang="en">
 
 <title>SMDb - Login</title>
 <head></head>
