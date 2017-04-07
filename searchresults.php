@@ -34,16 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </a>
 
+
+
+
+
 <div class="div-padding">
   <span class="bolda">Database > "<?php echo $match; ?>" Movies</span>
-</div>
-<div class="div-padding">
-
-</div>
-<form action="search.php" method="post">
-<input class="cleanButton" type="submit" value="Search Database">
-</form>
-<br><br>
+</div><br>
 
 <?php
 // The following spaghetti lists all search results (movies).
@@ -102,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<br><br>
+<br>
   <form action="list.php" method="post">
   <input class="noButton" type="submit" value="Back">
 </form>

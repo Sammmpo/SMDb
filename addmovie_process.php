@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $movieCount = $result;
         }
 
-        if ($movieCount >= 50) { // Limit to avoid database crash.
+        if ($movieCount >= 1000) { // Technical limit to avoid database crash.
             echo "The database is full.<br>";
             header("Refresh:2; addmovie.php");
         } else { // If requirements are satisfied, continue.

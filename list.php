@@ -9,7 +9,7 @@ include 'session_checker.php';
 $currentID = $_SESSION['sessionID'];
 ?>
 
-<title>SMDb - My Movies</title>
+<title>SMDb - Home</title>
 
 <head></head>
 
@@ -31,15 +31,38 @@ $currentID = $_SESSION['sessionID'];
   </div>
 </a>
 
-<div class="div-padding"><span class="bolda">Database > My Movies</span><br><br></div>
+<?php
+$inputId = $currentID;
+$stmtFindUsername->execute();
+$stmtFindUsername->bind_result($result);
+$stmtFindUsername->store_result();
+$stmtFindUsername->fetch();
+if ($stmtFindUsername->num_rows > 0) {
+    $name = $result;
+}
+
+echo "Welcome, ".$name;
+$queryAdmin   = "SELECT admin FROM account WHERE id=$currentID";
+$resultsAdmin = $conn->query($queryAdmin);
+$admin        = mysqli_fetch_row($resultsAdmin);
+if ($admin[0] == true) {
+  echo " (admin)";
+  //echo "<br><br>As admin, all movies are visible on this page";
+}
+echo ".";
+
+?>
+<br><br><br>
 
 <form action="search.php">
-<input class="cleanButton" type="submit" value="Search Database"><br><br>
+<input class="cleanButton" type="submit" value="Search Movies"><br><br>
 </form>
 
 <form action="addmovie.php">
-<input class="yesButton" type="submit" value="Add New Movie"><br><br><br>
+<input class="yesButton" type="submit" value="Add New Movie"><br><br>
 </form>
+
+<div class="div-padding"><span class="bolda">Database > My Movies</span><br><br></div>
 
 <?php
 
@@ -104,7 +127,7 @@ if ($result->num_rows > 0) {
 
     }
 } else { // Just in case there are no movies in the database.
-    echo "<br><div class='noButton'><br>No movies found. Add one!<br><br></div>";
+    echo "<div class='noButton'><br>No movies found. Add one!<br><br></div>";
 }
 
 $conn->close();
