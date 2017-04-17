@@ -19,3 +19,5 @@ How to Setup:
 - Go to phpMyAdmin, create a database "smdb" and import the .SQL script (it creates the tables and inserts default movies).
 - Open "http://localhost:8080/SMDb/login.php" in your web browser (assuming "8080" is your Apache port number, which is "80" by default).
 - Enjoy the App! :)
+
+You can find a screenshot of the GUI in the "images"-folder.
