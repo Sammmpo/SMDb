@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($nameLength < 3) {
         echo "Movie Name has to be at least 3 characters long. <br>";
         header("Refresh:2; addmovie.php");
-    } else if ($inputYear < 1890) {
-        echo "Release Year must be later than 1890. <br>";
+    } else if ($inputYear < 1890 || $inputYear > 2100) {
+        echo "Release Year must be between 1890-2100. <br>";
         header("Refresh:2; addmovie.php");
     } else {
 
