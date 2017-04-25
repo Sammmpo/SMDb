@@ -46,8 +46,8 @@ $queryAdmin   = "SELECT admin FROM account WHERE id=$currentID";
 $resultsAdmin = $conn->query($queryAdmin);
 $admin        = mysqli_fetch_row($resultsAdmin);
 if ($admin[0] == true) {
-  echo " (admin)";
-  //echo "<br><br>As admin, all movies are visible on this page";
+  echo " <a href='manage.php'>(admin)</a>";
+  //As an admin, all movies are visible on this page";
 }
 echo ".";
 
@@ -119,6 +119,7 @@ if ($result->num_rows > 0) {
         echo "</span>";
 
             $rowid = $row['id'];
+
             echo "<form action='remove_process.php' method='post'>"; // For deleting movies.
             echo "<input type='hidden' value='$rowid' name='id'>"; // To delete this movie.
             echo "<input class='movie-remove' type='submit' value='Remove from SMDb'></form>";

@@ -64,9 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmtAddMovie->execute()) { // Prepared Statement
                 echo "Adding Movie...";
-            } else {
-                echo "Something went wrong.";
-            }
+
 
             $stmtNewestMID->execute();
             $stmtNewestMID->bind_result($result);
@@ -85,9 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
             }
+
             $_SESSION['input_moviename'] = "";
             $_SESSION['input_movieyear'] = "";
             $_SESSION['input_movietrailer'] = "";
+          } else {
+              echo "Something went wrong.";
+          }
             header("Refresh:1; list.php");
         }
     }

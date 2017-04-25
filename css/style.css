@@ -82,6 +82,7 @@ padding-bottom: 1%;
   border-width: 0px;
   background: radial-gradient(circle, #ff6666, orange);
 }
+
 .noButton { /* Red button */
   background: red;
   background: radial-gradient(circle, #ffccb3, #ff9966);
@@ -129,6 +130,22 @@ padding-bottom: 1%;
 
 .btn-block {
 	background-color: lightblue;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
 /* — End of file — */

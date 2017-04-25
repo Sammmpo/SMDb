@@ -54,6 +54,9 @@ $stmtDeleteLink = $conn->prepare("DELETE FROM link WHERE mid = ?");
 $stmtDeleteLink->bind_param("i", $rowid);
 /* This is used to get rid of the old, useless data. */
 
+$stmtPromote = $conn->prepare("UPDATE account SET admin = 1 WHERE id = ?");
+$stmtPromote->bind_param("i", $userToBePromoted);
+
 /* Prepared Statements (READ Table) */
 
 $stmtLogin = $conn->prepare("SELECT id from account where username=? AND password=?");
@@ -73,6 +76,7 @@ $stmtMovieCount = $conn->prepare("SELECT COUNT(*) FROM movie");
 
 $stmtNewestMID = $conn->prepare("SELECT MAX(id) FROM movie");
 /* This is used in "addmovie_process.php" to get the ID of the recently added movie. */
+
 ?>
 
 
