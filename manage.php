@@ -90,7 +90,7 @@ if ($stmtFindUsername->num_rows > 0) {
 
 <br>
 <form action="list.php" method="post">
-<input class="noButton" type="submit" value="Cancel">
+<input class="noButton" type="submit" value="Back">
 </form>
 
 
