@@ -15,6 +15,7 @@ What is SMDb and what features does it have?
 
 How to Setup:
 - Download the .ZIP from this GitHub repository.
+- Save the folder under "C:\xampp\htdocs" directory and name it "SMDb".
 - Launch Apache and MySQL (with XAMPP for example).
 - Go to phpMyAdmin, create a database "smdb" and import the .SQL script (it creates the tables and inserts default movies).
 - Open "http://localhost:8080/SMDb/login.php" in your web browser (assuming "8080" is your Apache port number, which is "80" by default).
